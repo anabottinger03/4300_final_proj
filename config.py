@@ -1,0 +1,4 @@
+import os
+
+AWS_REGION = os.getenv("AWS_REGION")
+DB_CONNECTION_STRING = os.getenv("DB_CONNECTION_STRING")
