@@ -1,8 +1,16 @@
 import pandas as pd
-# optional pre cleaning of upload locally 
-def clean_nutrition_data(df):
-    df['calories'] = df['calories'].fillna(0)
-    df['sugar'] = df['sugar'].fillna(0)
-    df['protein'] = df['protein'].fillna(0)
-    df['fat'] = df['fat'].fillna(0)
-    return df
+
+
+# Load original data
+df = pd.read_csv("data/daily_food_nutrition_dataset.csv")
+
+# Drop rows with any null values
+df_clean = df.dropna()
+
+# Optional: Reset index after dropping
+df_clean = df_clean.reset_index(drop=True)
+
+# Save cleaned version
+df_clean.to_csv("data/cleaned_food_nutrition_dataset.csv", index=False)
+
+print("Cleaning Complete. Saved as cleaned_food_nutrition_dataset.csv")
