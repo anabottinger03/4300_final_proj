@@ -1,16 +1,17 @@
 import streamlit as st
 
-st.set_page_config(page_title="Nutrition Analytics", layout="wide")
+st.set_page_config(
+    page_title="Nutrition Analytics Dashboard",
+    layout="wide",
+)
 
-st.title("Personalized Nutrition Dashboard")
+st.title("🥑 Nutrition Analytics Dashboard")
 
-st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Upload Log", "Analytics"])
+st.markdown("##### Personalized food tracking & health insights powered by AWS")
 
-if page == "Upload Log":
-    from pages import upload
-    upload.app()
+st.markdown("""
+### Navigate using the sidebar:
+- 📤 Upload Data
+- 📊 View Analytics
+""")
 
-elif page == "Analytics":
-    from pages import analytics
-    analytics.app()
